@@ -29,7 +29,7 @@ export class EmployeeService {
 
     const passwordHash = await bcrypt.hash(createEmployee.password, 10);
 
-    const user = await this.database.employee.create({
+    const employee = await this.database.employee.create({
       data: {
         ...createEmployee,
         password: passwordHash
@@ -38,12 +38,12 @@ export class EmployeeService {
 
     delete createEmployee.password
 
-    return user
+    return employee
     
   }
 
   async read(): Promise<EmployeeDto[]> {
-    const users = await this.database.employee.findMany({
+    const employeesList = await this.database.employee.findMany({
       select:{
         id: true,
         name: true,
@@ -53,7 +53,7 @@ export class EmployeeService {
         function: true,
       }
     }) 
-    return users
+    return employeesList
   }
 
   async readSingle(dataId: string): Promise<Employee> {
@@ -86,7 +86,7 @@ export class EmployeeService {
         }
       })
       if (emailExists){
-        throw new ConflictException('Email existente no banco de dados. Tente com outro email')
+        throw new ConflictException('Já existe cadastro com este email')
       }
     }
 

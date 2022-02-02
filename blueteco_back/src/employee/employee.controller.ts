@@ -23,6 +23,7 @@ export class EmployeeController {
   @ApiOperation({
     summary: 'Listar todos os cadastrados'
   })
+  @ApiBearerAuth()
   read(): Promise<EmployeeDto[]> {
     return this.employeeService.read();
   }
@@ -36,20 +37,20 @@ export class EmployeeController {
     return this.employeeService.readSingle(dataId)
   }
 
+  @Patch(':id')
   @ApiOperation({
     summary: 'Alterar o usuário'
   })
   @ApiBearerAuth()
-  @Patch(':id')
   update(@Param('id') dataId: string, @Body() data: UpdateDto): Promise<Employee> {
     return this.employeeService.update(dataId, data)
   }
 
+  @Delete(':id')
   @ApiOperation({
     summary: 'Deletar um usuário'
   })
   @ApiBearerAuth()
-  @Delete(':id')
   deleted(@Param('id') dataId: string): Promise<Employee> {
     return this.employeeService.deleted(dataId)
   }
