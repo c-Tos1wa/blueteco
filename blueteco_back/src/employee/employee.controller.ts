@@ -1,4 +1,5 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { Employee } from '@prisma/client'
 import { EmployeeService } from './employee.service';
 import { CreateDto } from '../employee/dto/create-employee.dto'
@@ -6,8 +7,8 @@ import { UpdateDto } from '../employee/dto/update-employee.dto'
 import { EmployeeDto } from './dto/employee.dto';
 import { ApiOperation, ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 
-@ApiTags('user')
-@Controller('user')
+@ApiTags('funcionario')
+@Controller('funcionario')
 export class EmployeeController {
   constructor(private readonly employeeService: EmployeeService) {}
 
@@ -23,12 +24,14 @@ export class EmployeeController {
   @ApiOperation({
     summary: 'Listar todos os cadastrados'
   })
-  @ApiBearerAuth()
+  // @ApiBearerAuth()
+  // @UseGuards(AuthGuard())
   read(): Promise<EmployeeDto[]> {
     return this.employeeService.read();
   }
 
   @Get(':id')
+  @UseGuards(AuthGuard())
   @ApiOperation({
     summary: 'Listar somente um cadastrado'
   })
@@ -38,6 +41,7 @@ export class EmployeeController {
   }
 
   @Patch(':id')
+  @UseGuards(AuthGuard())
   @ApiOperation({
     summary: 'Alterar o usuário'
   })
@@ -47,6 +51,7 @@ export class EmployeeController {
   }
 
   @Delete(':id')
+  @UseGuards(AuthGuard())
   @ApiOperation({
     summary: 'Deletar um usuário'
   })
@@ -54,6 +59,4 @@ export class EmployeeController {
   deleted(@Param('id') dataId: string): Promise<Employee> {
     return this.employeeService.deleted(dataId)
   }
-
-  
 }

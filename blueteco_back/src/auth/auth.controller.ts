@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
 import { ApiOperation, ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 import { AuthGuard } from '@nestjs/passport'
 import { Employee } from '@prisma/client';
@@ -6,6 +6,7 @@ import { AuthService } from './auth.service';
 import { LoginDto } from './dto/login.dto'
 import { ResponseDto } from './dto/login-response.dto';
 import { Logged } from './logged-decorator';
+import { Request } from 'express';
 
 @ApiTags('login')
 @Controller('login')
@@ -26,7 +27,7 @@ export class AuthController {
     summary: "Mostrar usuário logado"
   })
   @ApiBearerAuth()
-  show(@Logged() employee: Employee){
-    return employee
+  show(@Logged() user: Employee) {
+    return user
   }
 }

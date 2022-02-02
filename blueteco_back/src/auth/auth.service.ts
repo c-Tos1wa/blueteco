@@ -1,4 +1,4 @@
-import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaService } from '../prisma.service'
 import * as bcrypt from 'bcrypt'
@@ -26,7 +26,7 @@ export class AuthService {
 
     const validHash = await bcrypt.compare(password, validUser.password);
     if(!validHash){
-      throw new ConflictException('Credenciais inválidas');
+      throw new UnauthorizedException('Credenciais inválidas');
     }
 
     delete validUser.password
