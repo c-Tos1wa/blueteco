@@ -1,8 +1,8 @@
 import { ConflictException, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { PrismaService } from '../prisma.service'
 import { Employee } from '@prisma/client'
-import { CreateDto } from '../employee/dto/create-employee.dto'
-import { UpdateDto } from '../employee/dto/update-employee.dto'
+import { CreateEmployeeDto } from '../employee/dto/create-employee.dto'
+import { UpdateEmployeeDto } from '../employee/dto/update-employee.dto'
 import { EmployeeDto } from '../employee/dto/employee.dto'
 import * as bcrypt from 'bcrypt'
 
@@ -10,7 +10,7 @@ import * as bcrypt from 'bcrypt'
 export class EmployeeService {
   constructor(private database: PrismaService) {}
 
-  async create( createEmployee: CreateDto): Promise<Employee> {
+  async create( createEmployee: CreateEmployeeDto): Promise<Employee> {
     const email = await this.database.employee.findUnique({
       where: {
         email: createEmployee.email
@@ -69,7 +69,7 @@ export class EmployeeService {
     return uniqueUser
   }
 
-  async update(id: string, updateEmployee: UpdateDto): Promise<Employee> {
+  async update(id: string, updateEmployee: UpdateEmployeeDto): Promise<Employee> {
     const found = await this.database.employee.findUnique({
       where: {
         id: id

@@ -2,8 +2,8 @@ import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@n
 import { AuthGuard } from '@nestjs/passport';
 import { Employee } from '@prisma/client'
 import { EmployeeService } from './employee.service';
-import { CreateDto } from '../employee/dto/create-employee.dto'
-import { UpdateDto } from '../employee/dto/update-employee.dto'
+import { CreateEmployeeDto } from '../employee/dto/create-employee.dto'
+import { UpdateEmployeeDto } from '../employee/dto/update-employee.dto'
 import { EmployeeDto } from './dto/employee.dto';
 import { ApiOperation, ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 
@@ -16,7 +16,7 @@ export class EmployeeController {
     summary: 'Criar um usuário'
   })
   @Post()
-  create(@Body() data: CreateDto): Promise<Employee> {
+  create(@Body() data: CreateEmployeeDto): Promise<Employee> {
     return this.employeeService.create(data);
   }
 
@@ -46,7 +46,7 @@ export class EmployeeController {
     summary: 'Alterar o usuário'
   })
   @ApiBearerAuth()
-  update(@Param('id') dataId: string, @Body() data: UpdateDto): Promise<Employee> {
+  update(@Param('id') dataId: string, @Body() data: UpdateEmployeeDto): Promise<Employee> {
     return this.employeeService.update(dataId, data)
   }
 

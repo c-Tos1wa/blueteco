@@ -1,6 +1,6 @@
-import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma.service'
-import { Menu, Employee } from '@prisma/client'
+import { Menu } from '@prisma/client'
 import { CreateMenuDto } from '../menu/dto/create-menu.dto'
 import { UpdateMenuDto } from '../menu/dto/update-menu.dto'
 
@@ -48,7 +48,7 @@ export class MenuService {
     })
 
     if (!foundID){
-      throw new NotFoundException('O id deste item não foi encotrado')
+      throw new NotFoundException('Eeste item não foi encontrado')
     }
 
     const updateItem = await this.database.menu.update({
