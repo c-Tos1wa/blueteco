@@ -11,34 +11,46 @@ model Employee {
   id        String   @id @default(uuid())
   name      String
   lastName  String
-  email     String @unique
+  email     String   @unique
   password  String
   imageUrl  String
   birthDate DateTime
   function  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
+  tables    Table[]
+  menuItems Menu[]
 
   @@map("employee")
 }
 
+model Menu {
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  price       Float  @default(1.99)
+  imageUrl    String
+
+  menuItems Table[]
+
+  Employee   Employee? @relation(fields: [employeeId], references: [id])
+  employeeId String?
+
+  @@map("menu")
+}
+
 model Table {
   id        Int      @id @default(autoincrement())
-  items     String
-  quantity  Int
-  price     Float
+  quantity  Int?
+  price     Float?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  Employee   Employee? @relation(fields: [employeeId], references: [id])
+  employeeId String?
+
+  Menu   Menu? @relation(fields: [menuId], references: [id])
+  menuId Int?
+
   @@map("table")
-}
-
-model Menu {
-  id       Int    @id @default(autoincrement())
-  name     String
-  price    Float
-  imageUrl String
-
-  @@map("menu")
 }

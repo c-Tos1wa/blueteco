@@ -63,7 +63,7 @@ export class EmployeeService {
       }
     })
     if (!uniqueUser){
-      throw new NotFoundException('Não existe funcionário com este id')
+      throw new NotFoundException('Não existe usuário com este id')
     }
     delete uniqueUser.password
     return uniqueUser
@@ -76,7 +76,7 @@ export class EmployeeService {
       }
     })
     if (!found){
-      throw new NotFoundException('Não foi encontrado funcionário com este id')
+      throw new NotFoundException('Não existe usuário com este id')
     }
 
     if(updateEmployee.email) {

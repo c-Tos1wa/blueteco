@@ -16,4 +16,10 @@ export class CreateMenuDto {
   @IsUrl()
   @IsNotEmpty()
   imageUrl: string;
+
+  @ApiProperty()
+  @IsString()
+  @IsNotEmpty()
+  description: string;
+
 }
