@@ -8,14 +8,14 @@ import { UpdateTableDto } from './dto/update-table.dto';
 export class TableService {
   constructor(private database: PrismaService){}
 
-  async create(createTable: CreateTableDto): Promise<Table>{
-    const table = await this.database.table.create({
-      data: {
-        ...createTable
-      }
-    })
-    return table
-  }
+  // async create(createTable: CreateTableDto): Promise<Table>{
+  //   const table = await this.database.table.create({
+  //     data: {
+  //       ...createTable
+  //     }
+  //   })
+  //   return table
+  // }
 
   async read(): Promise<Table[]>{
     const showItAll = await this.database.table.findMany()
@@ -40,24 +40,24 @@ export class TableService {
     })
   }
 
-  async update(id: number, updateItem: UpdateTableDto): Promise<Table>{
-    const tableId = await this.database.table.findUnique({
-      where: {
-        id: id
-      }
-    })
+  // async update(id: number, updateItem: UpdateTableDto): Promise<Table>{
+  //   const tableId = await this.database.table.findUnique({
+  //     where: {
+  //       id: id
+  //     }
+  //   })
 
-    if(!tableId){
-      throw new NotFoundException('Mesa não encontrada')
-    }
+  //   if(!tableId){
+  //     throw new NotFoundException('Mesa não encontrada')
+  //   }
 
-    const updateTable = await this.database.table.update({
-      where: {
-        id: Number(id)
-      },
-      data: updateItem
-    })
+  //   const updateTable = await this.database.table.update({
+  //     where: {
+  //       id: Number(id)
+  //     },
+  //     data: updateItem
+  //   })
 
-    return updateTable
-  }
+  //   return updateTable
+  // }
 }

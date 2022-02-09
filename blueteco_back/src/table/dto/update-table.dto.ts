@@ -1,14 +1,13 @@
-import { IsNumber, IsOptional } from 'class-validator'
+import { IsArray, IsOptional, IsNumber } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger';
 
 export class UpdateTableDto {
-  @IsNumber()
   @IsOptional()
+  @IsNumber()
   @ApiProperty()
-  quantity: number;
+  totalPrice: number;
 
-  @IsNumber()
-  @IsOptional()
   @ApiProperty()
-  price: number;
+  @IsArray()
+  items: [];
 }

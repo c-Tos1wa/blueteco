@@ -22,6 +22,7 @@ CREATE TABLE "menu" (
     "price" DOUBLE PRECISION NOT NULL DEFAULT 1.99,
     "imageUrl" TEXT NOT NULL,
     "employeeId" TEXT,
+    "tableId" INTEGER,
 
     CONSTRAINT "menu_pkey" PRIMARY KEY ("id")
 );
@@ -29,12 +30,9 @@ CREATE TABLE "menu" (
 -- CreateTable
 CREATE TABLE "table" (
     "id" SERIAL NOT NULL,
-    "quantity" INTEGER NOT NULL DEFAULT 0,
-    "price" DOUBLE PRECISION NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
     "employeeId" TEXT,
-    "menuId" INTEGER,
 
     CONSTRAINT "table_pkey" PRIMARY KEY ("id")
 );
@@ -46,7 +44,7 @@ CREATE UNIQUE INDEX "employee_email_key" ON "employee"("email");
 ALTER TABLE "menu" ADD CONSTRAINT "menu_employeeId_fkey" FOREIGN KEY ("employeeId") REFERENCES "employee"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "table" ADD CONSTRAINT "table_employeeId_fkey" FOREIGN KEY ("employeeId") REFERENCES "employee"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "menu" ADD CONSTRAINT "menu_tableId_fkey" FOREIGN KEY ("tableId") REFERENCES "table"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "table" ADD CONSTRAINT "table_menuId_fkey" FOREIGN KEY ("menuId") REFERENCES "menu"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "table" ADD CONSTRAINT "table_employeeId_fkey" FOREIGN KEY ("employeeId") REFERENCES "employee"("id") ON DELETE SET NULL ON UPDATE CASCADE;

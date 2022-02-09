@@ -38,8 +38,7 @@ export class EmployeeService {
 
     delete createEmployee.password
 
-    return employee
-    
+    return employee  
   }
 
   async read(): Promise<EmployeeDto[]> {

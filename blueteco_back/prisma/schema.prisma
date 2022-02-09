@@ -31,26 +31,23 @@ model Menu {
   price       Float  @default(1.99)
   imageUrl    String
 
-  menuItems Table[]
-
   Employee   Employee? @relation(fields: [employeeId], references: [id])
   employeeId String?
 
+  Table   Table? @relation(fields: [tableId], references: [id])
+  tableId Int?
   @@map("menu")
 }
 
 model Table {
-  id        Int      @id @default(autoincrement())
-  quantity  Int?
-  price     Float?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id         Int      @id @default(autoincrement())
+  items      Menu[]
+  totalPrice Float? @default(1.99)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 
   Employee   Employee? @relation(fields: [employeeId], references: [id])
   employeeId String?
-
-  Menu   Menu? @relation(fields: [menuId], references: [id])
-  menuId Int?
 
   @@map("table")
 }

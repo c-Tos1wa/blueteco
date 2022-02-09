@@ -12,15 +12,15 @@ import { UpdateMenuDto } from 'src/menu/dto/update-menu.dto';
 export class TableController {
   constructor(private readonly tableService: TableService) {}
 
-  @Post()
-  @ApiOperation({
-    summary: 'Abrir/Criar uma mesa'
-  })
-  @ApiBearerAuth()
-  @UseGuards(AuthGuard())
-  create(@Body() data: CreateTableDto): Promise<Table> {
-    return this.tableService.create(data)
-  }
+  // @Post()
+  // @ApiOperation({
+  //   summary: 'Abrir uma mesa'
+  // })
+  // @ApiBearerAuth()
+  // @UseGuards(AuthGuard())
+  // create(@Body() data: CreateTableDto): Promise<Table> {
+  //   return this.tableService.create(data)
+  // }
 
   @Get()
   @ApiOperation({
@@ -40,20 +40,20 @@ export class TableController {
     return this.tableService.readOne(id)
   }
 
-  @Patch(':id')
-  @ApiOperation({
-    summary: 'Alterar a mesa'
-  })
-  @ApiBearerAuth()
-  @UseGuards(AuthGuard())
-  update(
-    @Param('id', ParseIntPipe) id: number,
-    @Body() data: UpdateTableDto
-    ): Promise<Table>{
-      return this.tableService.update(id, data)
+  // @Patch(':id')
+  // @ApiOperation({
+  //   summary: 'Alterar a mesa'
+  // })
+  // @ApiBearerAuth()
+  // @UseGuards(AuthGuard())
+  // update(
+  //   @Param('id', ParseIntPipe) id: number,
+  //   @Body() data: UpdateTableDto
+  //   ): Promise<Table>{
+  //     return this.tableService.update(id, data)
   }
 
   
   
 
-}
+
