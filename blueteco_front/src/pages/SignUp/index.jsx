@@ -16,7 +16,7 @@ const ButtonStyled = styled(Button)`
 
 const Main = styled.div`
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 0.8rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,7 +29,6 @@ const FormStyled = styled(Form)`
   justify-content: center;
   align-items: center;
   gap: 0.8rem;
-  margin: 1rem;
   padding: 0.5rem;
 `
 
@@ -39,14 +38,19 @@ const InputStyled = styled(Form.Control)`
   margin-right: 2rem;
 `
 
-export const Login = () => {
+export const SignUp = () => {
   return (
     <Main>
-      <h2>Entrar</h2>
-      <p>Não tem uma conta? Acesse <a href="#">aqui</a></p>
+      <h2>Criar conta</h2>
+      <p>Já tem uma conta? Acesse <a href="#">aqui</a></p>
       <FormStyled>
+        <InputStyled type="text" placeholder="Digite seu nome" required/>
+        <InputStyled type="text" placeholder="Digite seu sobrenome" required/>
+        <InputStyled type="text" placeholder="Digite sua data de nascimento" required/>
+        <InputStyled type="text" placeholder="Digite sua ocupação" required/>
         <InputStyled type="email" placeholder="Digite seu email" required />
         <InputStyled type="password" placeholder="Digite sua senha" required />
+        <InputStyled type="password" placeholder="Confirme sua senha" required />
         <ButtonStyled type="submit">
           Entrar
         </ButtonStyled>
