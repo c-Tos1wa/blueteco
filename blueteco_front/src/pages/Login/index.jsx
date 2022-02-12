@@ -1,16 +1,16 @@
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button, FormControl } from 'react-bootstrap'
 import styled from 'styled-components'
 
 const ButtonStyled = styled(Button)`
-  background-color: #000;
-  color: #fff;
+  background-color: #12664f;
+  color: #f0f3f5;
   border: none;
   font-size: 1.3rem;
   
   &:hover{
-    background-color: #12664f;
-    color: #f0f3f5;
-    box-shadow: 5px 10px #386fa4; 
+    background-color: #000000;
+    color: #fff;
+    box-shadow: 5px 10px #696969; 
   }
 `
 
@@ -33,20 +33,14 @@ const FormStyled = styled(Form)`
   padding: 0.5rem;
 `
 
-const InputStyled = styled(Form.Control)`
-  font-size: 1.2rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
-`
-
 export const Login = () => {
   return (
     <Main>
       <h2>Entrar</h2>
       <p>Não tem uma conta? Acesse <a href="#">aqui</a></p>
       <FormStyled>
-        <InputStyled type="email" placeholder="Digite seu email" required />
-        <InputStyled type="password" placeholder="Digite sua senha" required />
+        <Form.Control type="email" placeholder="Digite seu email" required />
+        <Form.Control type="password" placeholder="Digite sua senha" required />
         <ButtonStyled type="submit">
           Entrar
         </ButtonStyled>

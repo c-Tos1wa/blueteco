@@ -2,15 +2,15 @@ import { Form, Button } from 'react-bootstrap'
 import styled from 'styled-components'
 
 const ButtonStyled = styled(Button)`
-  background-color: #000;
-  color: #fff;
+  background-color: #12664f;
+  color: #f0f3f5;
   border: none;
   font-size: 1.3rem;
   
   &:hover{
-    background-color: #12664f;
-    color: #f0f3f5;
-    box-shadow: 5px 10px #386fa4; 
+    background-color: #000000;
+    color: #fff;
+    box-shadow: 5px 10px #696969; 
   }
 `
 
