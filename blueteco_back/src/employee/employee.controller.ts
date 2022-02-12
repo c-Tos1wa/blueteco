@@ -5,6 +5,7 @@ import { EmployeeService } from './employee.service';
 import { CreateEmployeeDto } from '../employee/dto/create-employee.dto'
 import { UpdateEmployeeDto } from '../employee/dto/update-employee.dto'
 import { EmployeeDto } from './dto/employee.dto';
+import { Logged } from '../auth/logged-decorator'
 import { ApiOperation, ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 
 @ApiTags('user')
@@ -40,23 +41,26 @@ export class EmployeeController {
     return this.employeeService.readSingle(dataId)
   }
 
-  @Patch(':id')
+  @Patch()
   @UseGuards(AuthGuard())
   @ApiOperation({
     summary: 'Alterar o usuário'
   })
   @ApiBearerAuth()
-  update(@Param('id') dataId: string, @Body() data: UpdateEmployeeDto): Promise<Employee> {
-    return this.employeeService.update(dataId, data)
+  update(
+    @Logged() user: Employee, 
+    @Body() data: UpdateEmployeeDto): Promise<Employee> 
+  {
+    return this.employeeService.update(user.id, data)
   }
 
-  @Delete(':id')
+  @Delete()
   @UseGuards(AuthGuard())
   @ApiOperation({
     summary: 'Deletar um usuário'
   })
   @ApiBearerAuth()
-  deleted(@Param('id') dataId: string): Promise<Employee> {
-    return this.employeeService.deleted(dataId)
+  deleted(@Logged() user: Employee): Promise<Employee> {
+    return this.employeeService.deleted(user.id)
   }
 }

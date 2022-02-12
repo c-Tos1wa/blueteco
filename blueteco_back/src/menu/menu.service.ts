@@ -10,12 +10,12 @@ export class MenuService {
 
   async create(createMenuDto: CreateMenuDto): Promise<Menu>{
     
-    const items = await this.database.menu.create({
+    const menuItems = await this.database.menu.create({
       data: {
         ...createMenuDto,
       }
     })
-    return items
+    return menuItems
   }
 
   async read(): Promise<Menu[]>{

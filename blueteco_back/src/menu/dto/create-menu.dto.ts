@@ -20,6 +20,5 @@ export class CreateMenuDto {
   @ApiProperty()
   @IsString()
   @IsNotEmpty()
-  description: string;
-
+  description: string; 
 }

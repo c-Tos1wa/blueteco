@@ -18,7 +18,11 @@ export class TableService {
   // }
 
   async read(): Promise<Table[]>{
-    const showItAll = await this.database.table.findMany()
+    const showItAll = await this.database.table.findMany({
+      include: {
+        items: true
+      }
+    })
     return showItAll
   }
 
@@ -26,6 +30,9 @@ export class TableService {
     const table = await this.database.table.findUnique({
       where: { 
         id: id
+      },
+      include: {
+        items: true
       }
     })
 
