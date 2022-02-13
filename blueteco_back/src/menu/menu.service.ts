@@ -8,11 +8,19 @@ import { UpdateMenuDto } from '../menu/dto/update-menu.dto'
 export class MenuService {
   constructor(private database: PrismaService){}
 
-  async create(createMenuDto: CreateMenuDto): Promise<Menu>{
-    
+  async create(createMenuDto: CreateMenuDto, employeeId: string): Promise<Menu>{  
     const menuItems = await this.database.menu.create({
-      data: {
-        ...createMenuDto,
+      data: 
+      {
+        name: createMenuDto.name,
+        description: createMenuDto.description,
+        price: createMenuDto.price,
+        imageUrl: createMenuDto.imageUrl,
+        Employee: { 
+          connect: {
+            id: employeeId
+          }
+        }
       }
     })
     return menuItems

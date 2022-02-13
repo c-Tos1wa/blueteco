@@ -8,14 +8,19 @@ import { UpdateTableDto } from './dto/update-table.dto';
 export class TableService {
   constructor(private database: PrismaService){}
 
-  // async create(createTable: CreateTableDto): Promise<Table>{
-  //   const table = await this.database.table.create({
-  //     data: {
-  //       ...createTable
-  //     }
-  //   })
-  //   return table
-  // }
+  async create(createTable: CreateTableDto, employeeId: string): Promise<Table>{
+    const table = await this.database.table.create({
+      data: {
+        totalPrice: createTable.totalPrice,
+        Employee: {
+          connect: {
+            id: employeeId
+          }
+        }
+      }
+    })
+    return table
+  }
 
   async read(): Promise<Table[]>{
     const showItAll = await this.database.table.findMany({
