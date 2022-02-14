@@ -8,8 +8,9 @@ const ButtonStyled = styled(Button)`
   font-size: 1.3rem;
   
   &:hover{
-    background-color: #000000;
-    color: #fff;
+    background-color: #12664f;
+    color: #f0f3f5;
+    border: none;
     box-shadow: 5px 10px #696969; 
   }
 `
