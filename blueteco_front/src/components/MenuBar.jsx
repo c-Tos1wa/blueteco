@@ -6,7 +6,7 @@ export const MenuBar = () => {
   return(
     <Navbar bg="dark" variant="dark">
     <Container>
-      <Navbar.Brand href="#home">
+      <Navbar.Brand href="/">
         <img
           alt=""
           src={Logo}
@@ -16,8 +16,8 @@ export const MenuBar = () => {
       Blueteco
       </Navbar.Brand>
       <Nav>
-        <Nav.Link href="#">Criar Conta</Nav.Link>
-        <Nav.Link href="#">Login</Nav.Link>
+        <Nav.Link href="/criar_conta">Criar Conta</Nav.Link>
+        <Nav.Link href="/login">Login</Nav.Link>
       </Nav>
     </Container>
   </Navbar>

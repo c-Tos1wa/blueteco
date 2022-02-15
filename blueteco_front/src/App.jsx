@@ -1,10 +1,24 @@
+import { useRoutes } from 'react-router-dom'
 import { Login } from './pages/Login'
 import { SignUp } from './pages/SignUp'
 
 function App() {
-  return (
-    <Login />
-  )
+  let routing = useRoutes([
+    // {
+    //   path: '/',
+    //   element: <Home />,  
+    // },
+    {
+      path: '/login',
+      element: <Login />,
+    },
+    {
+      path: '/criar_conta',
+      element: <SignUp />
+    }
+  ]);
+
+  return routing;
 }
 
 export default App
