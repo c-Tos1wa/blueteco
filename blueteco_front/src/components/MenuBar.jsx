@@ -1,17 +1,19 @@
 import { Navbar, Container, Nav } from 'react-bootstrap'
+import styled from 'styled-components'
 import Logo from '../assets/beer-logo.ico'
+
 
 
 export const MenuBar = () => {
   return(
     <Navbar bg="dark" variant="dark">
-    <Container>
+    <Container fixed>
       <Navbar.Brand href="/">
         <img
           alt=""
           src={Logo}
-          width="35"
-          height="35"
+          width="30"
+          height="30"
         />
       Blueteco
       </Navbar.Brand>

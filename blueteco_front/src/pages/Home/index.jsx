@@ -49,7 +49,7 @@ export const Home = () => {
         and cultivar robust aroma spoon chicory.
         <br />
         Quer conhecer? Seja Bem-Vindo(a)!!!
-        <Enter href="/login">Entrar</Enter>
+        <Enter href="/produtos">Entrar</Enter>
       </p>
     </Main>
   )

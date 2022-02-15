@@ -5,7 +5,8 @@ const ButtonStyled = styled(Button)`
   background-color: #12664f;
   color: #f0f3f5;
   border: none;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
+  margin: 1rem 10rem;
   
   &:hover{
     background-color: #12664f;
@@ -16,7 +17,6 @@ const ButtonStyled = styled(Button)`
 `
 
 const Main = styled.div`
-  text-align: center;
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
@@ -24,28 +24,24 @@ const Main = styled.div`
   align-items: center;
 `
 
-const FormStyled = styled(Form)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0.8rem;
-  margin: 1rem;
-  padding: 0.5rem;
-`
-
 export const Login = () => {
   return (
     <Main>
       <h2>Entrar</h2>
       <p>Não tem uma conta? Acesse <a href="/criar_conta">aqui</a></p>
-      <FormStyled>
-        <Form.Control type="email" placeholder="Digite seu email" required />
-        <Form.Control type="password" placeholder="Digite sua senha" required />
+      <Form>
+        <Form.Group>
+          <Form.Label>E-mail</Form.Label>
+          <Form.Control type="email" placeholder="Digite seu email cadastrado" required/>
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Senha</Form.Label>
+          <Form.Control type="password" placeholder="Digite sua senha" required/>
+        </Form.Group>
         <ButtonStyled type="submit">
           Login
         </ButtonStyled>
-      </FormStyled>
+      </Form>
     </Main>
   )
 }

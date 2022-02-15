@@ -2,6 +2,7 @@ import { useRoutes } from 'react-router-dom'
 import { Home } from './pages/Home'
 import { Login } from './pages/Login'
 import { SignUp } from './pages/SignUp'
+import { Products } from './pages/Products'
 
 
 function App() {
@@ -17,6 +18,10 @@ function App() {
     {
       path: '/criar_conta',
       element: <SignUp />
+    },
+    {
+      path: '/produtos',
+      element: <Products />
     }
   ]);
 
