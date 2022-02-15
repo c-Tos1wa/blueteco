@@ -37,7 +37,7 @@ export const SignUp = () => {
   return (
     <Main>
       <h2>Criar conta</h2>
-      <p>Já tem uma conta? Acesse <a href="#">aqui</a></p>
+      <p>Já tem uma conta? Acesse <a href="/login">aqui</a></p>
       <FormStyled>
         <Form.Control type="text" placeholder="Digite seu nome" required/>
         <Form.Control type="text" placeholder="Digite seu sobrenome" required/>
@@ -47,7 +47,7 @@ export const SignUp = () => {
         <Form.Control type="password" placeholder="Digite sua senha" required />
         <Form.Control type="password" placeholder="Confirme sua senha" required />
         <ButtonStyled type="submit">
-          Entrar
+          Criar
         </ButtonStyled>
       </FormStyled>
     </Main>

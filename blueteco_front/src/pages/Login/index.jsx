@@ -38,12 +38,12 @@ export const Login = () => {
   return (
     <Main>
       <h2>Entrar</h2>
-      <p>Não tem uma conta? Acesse <a href="#">aqui</a></p>
+      <p>Não tem uma conta? Acesse <a href="/criar_conta">aqui</a></p>
       <FormStyled>
         <Form.Control type="email" placeholder="Digite seu email" required />
         <Form.Control type="password" placeholder="Digite sua senha" required />
         <ButtonStyled type="submit">
-          Entrar
+          Login
         </ButtonStyled>
       </FormStyled>
     </Main>
