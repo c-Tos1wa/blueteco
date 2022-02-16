@@ -1,4 +1,7 @@
-import { Form, Button, FormControl } from 'react-bootstrap'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import { Form, Button } from 'react-bootstrap'
 import styled from 'styled-components'
 
 const ButtonStyled = styled(Button)`
@@ -25,18 +28,54 @@ const Main = styled.div`
 `
 
 export const Login = () => {
+  let navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const loggedUser = {
+      email, password
+    }
+
+    navigate('/perfil')
+
+    axios.post('/auth', loggedUser)
+      .then((response) => {
+        const token = response.data.token;
+        localStorage.setItem('token', token)
+        console.log(response.statusText)
+      })
+      .catch((err) => {
+        console.log(err.response.data.message)
+      })
+  }
+  
+
   return (
     <Main>
       <h2>Entrar</h2>
       <p>Não tem uma conta? Acesse <a href="/criar_conta">aqui</a></p>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label>E-mail</Form.Label>
-          <Form.Control type="email" placeholder="Digite seu email cadastrado" required/>
+          <Form.Control 
+            type="email" 
+            placeholder="Digite seu email cadastrado" 
+            required
+            onChange = {(event) => setEmail(event.target.value)}  
+          />
         </Form.Group>
         <Form.Group>
           <Form.Label>Senha</Form.Label>
-          <Form.Control type="password" placeholder="Digite sua senha" required/>
+          <Form.Control 
+            type="password" 
+            placeholder="Digite sua senha" 
+            required
+            onChange = {(event) => setPassword(event.target.value)}
+            
+          />
         </Form.Group>
         <ButtonStyled type="submit">
           Login
