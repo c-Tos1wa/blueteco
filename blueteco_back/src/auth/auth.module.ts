@@ -4,14 +4,13 @@ import { AuthController } from './auth.controller';
 import { PrismaService } from '../prisma.service'
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
-import { jwtConstant } from './jwt.constant'
 import { jwtStrategy } from './jwt.strategy'
 
 @Module({
   imports: [
     PassportModule.register({defaultStrategy: 'jwt'}),
     JwtModule.register({
-      secret: jwtConstant.secret,
+      secret: process.env.JWT_SECRET,
       signOptions: { expiresIn: '4h' },
     })
   ],
