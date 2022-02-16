@@ -3,7 +3,7 @@ import { Home } from './pages/Home'
 import { Login } from './pages/Login'
 import { SignUp } from './pages/SignUp'
 import { Products } from './pages/Products'
-import { Profile} from './pages/Profile'
+import { Profile } from './pages/Profile'
 
 
 function App() {

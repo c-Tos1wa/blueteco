@@ -10,33 +10,17 @@ const Front = styled.img`
 const Main = styled.div`
   display: flex;
   gap: 3px;
+  margin: 1.9rem 0; 
 `
 
-const Final = styled.div`
-  display: flex;
-  justify-content: center;
+const Text = styled.p`
+  text-align: center;
 `
-
-const Enter = styled(Button)`
-
-  color: #fff;
-  background-color: #000;
-  padding: 0.5rem;
-  border: none;
-  margin: 0.8rem 0;
-
-  &:hover{
-    background-color: #000;
-    color: #fff;
-    box-shadow: 5px 10px #696969;
-  }
-`
-
 export const Home = () => {
   return (
     <Main>
       <Front src={food} alt="Foto de comida de boteco" />
-      <p>
+      <Text>
         <h3>Blueteco</h3>
         Nossa História
         <br />
@@ -57,12 +41,13 @@ export const Home = () => {
         To go irish shop affogato, aromatic skinny steamed foam white. Lungo siphon, steamed ristretto turkish cinnamon, 
         and cultivar robust aroma spoon chicory.
         <br />
-        <Final>
-          <Enter href="/produtos">
+          <Button 
+            href="/produtos"
+            variant='dark'  
+          >
             Entrar <BsDoorOpen />
-          </Enter>
-        </Final>
-      </p>
+          </Button>
+      </Text>
     </Main>
   )
 }

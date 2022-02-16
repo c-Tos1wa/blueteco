@@ -20,6 +20,7 @@ export const MenuBar = () => {
       <Nav>
         <Nav.Link href="/criar_conta">Criar Conta</Nav.Link>
         <Nav.Link href="/login">Login</Nav.Link>
+        <Nav.Link href='/perfil'>Perfil</Nav.Link>
       </Nav>
     </Container>
   </Navbar>
