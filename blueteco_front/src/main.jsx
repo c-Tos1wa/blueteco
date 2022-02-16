@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
-import { MenuBar } from './components/MenuBar'
 import { FooterStyled } from './components/FooterPart'
+import { MenuBar } from './components/MenuBar'
 import axios from 'axios';
 
 import 'bootstrap/dist/css/bootstrap.min.css';

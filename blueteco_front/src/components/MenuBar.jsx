@@ -3,11 +3,10 @@ import styled from 'styled-components'
 import Logo from '../assets/beer-logo.ico'
 
 
-
 export const MenuBar = () => {
   return(
-    <Navbar bg="dark" variant="dark">
-    <Container fixed>
+    <Navbar bg="dark" variant="dark" sticky='top'>
+    <Container fluid>
       <Navbar.Brand href="/">
         <img
           alt=""
@@ -18,8 +17,8 @@ export const MenuBar = () => {
       Blueteco
       </Navbar.Brand>
       <Nav>
-        <Nav.Link href="/criar_conta">Criar Conta</Nav.Link>
-        <Nav.Link href="/login">Login</Nav.Link>
+        <Nav.Link href='/criar_conta'>Criar Conta</Nav.Link>
+        <Nav.Link href='/login'>Login</Nav.Link>
         <Nav.Link href='/perfil'>Perfil</Nav.Link>
       </Nav>
     </Container>

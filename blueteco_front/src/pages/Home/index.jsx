@@ -3,6 +3,7 @@ import food from '../../assets/comida-boteco.jpeg'
 import { Button } from 'react-bootstrap'
 import { BsDoorOpen } from "react-icons/bs";
 
+
 const Front = styled.img`
   width: auto;
 `
@@ -18,6 +19,7 @@ const Text = styled.p`
 `
 export const Home = () => {
   return (
+    <>
     <Main>
       <Front src={food} alt="Foto de comida de boteco" />
       <Text>
@@ -41,6 +43,7 @@ export const Home = () => {
         To go irish shop affogato, aromatic skinny steamed foam white. Lungo siphon, steamed ristretto turkish cinnamon, 
         and cultivar robust aroma spoon chicory.
         <br />
+        <br />
           <Button 
             href="/produtos"
             variant='dark'  
@@ -49,5 +52,6 @@ export const Home = () => {
           </Button>
       </Text>
     </Main>
+    </>
   )
 }

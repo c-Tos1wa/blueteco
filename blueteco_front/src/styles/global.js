@@ -8,11 +8,11 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     box-sizing: border-box;
     font-family: 'Playfair Display', serif;
+    font-size: 16px;
   }
 
   a {
     text-decoration: none;
-    font-weight: 900;
     color: #000;
 
     &:hover{
