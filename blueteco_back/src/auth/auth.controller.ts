@@ -6,10 +6,9 @@ import { AuthService } from './auth.service';
 import { LoginDto } from './dto/login.dto'
 import { ResponseDto } from './dto/login-response.dto';
 import { Logged } from './logged-decorator';
-import { Request } from 'express';
 
-@ApiTags('login')
-@Controller('login')
+@ApiTags('auth')
+@Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 

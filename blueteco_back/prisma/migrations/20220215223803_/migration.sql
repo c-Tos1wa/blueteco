@@ -7,7 +7,7 @@ CREATE TABLE "employee" (
     "password" TEXT NOT NULL,
     "imageUrl" TEXT NOT NULL,
     "birthDate" TIMESTAMP(3) NOT NULL,
-    "function" TEXT NOT NULL,
+    "ocupation" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -30,6 +30,7 @@ CREATE TABLE "menu" (
 -- CreateTable
 CREATE TABLE "table" (
     "id" SERIAL NOT NULL,
+    "totalPrice" DOUBLE PRECISION DEFAULT 1.99,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
     "employeeId" TEXT,

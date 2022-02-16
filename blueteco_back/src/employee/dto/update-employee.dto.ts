@@ -36,5 +36,5 @@ export class UpdateEmployeeDto{
   @IsNotEmpty()
   @IsString()
   @IsOptional()
-  function: string;
+  ocupation: string;
 }

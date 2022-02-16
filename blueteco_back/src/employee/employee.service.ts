@@ -10,7 +10,7 @@ import * as bcrypt from 'bcrypt'
 export class EmployeeService {
   constructor(private database: PrismaService) {}
 
-  async create( createEmployee: CreateEmployeeDto): Promise<Employee> {
+  async create(createEmployee: CreateEmployeeDto): Promise<Employee> {
     const email = await this.database.employee.findUnique({
       where: {
         email: createEmployee.email
@@ -49,7 +49,7 @@ export class EmployeeService {
         lastName: true,
         email: true,
         imageUrl: true,
-        function: true,
+        ocupation: true,
       }
     }) 
     return employeesList
@@ -97,7 +97,7 @@ export class EmployeeService {
         email: updateEmployee.email,
         birthDate: updateEmployee.birthDate,
         imageUrl: updateEmployee.imageUrl,
-        function: updateEmployee.function
+        ocupation: updateEmployee.ocupation
       }
     })
     delete updatedInfo.password

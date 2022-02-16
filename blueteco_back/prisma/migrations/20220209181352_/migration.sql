@@ -1,2 +1,0 @@
--- AlterTable
-ALTER TABLE "table" ADD COLUMN     "totalPrice" DOUBLE PRECISION DEFAULT 1.99;

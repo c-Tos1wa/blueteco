@@ -42,5 +42,5 @@ export class CreateEmployeeDto{
   @ApiProperty()
   @IsNotEmpty()
   @IsString()
-  function: string;
+  ocupation: string;
 }

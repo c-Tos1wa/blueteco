@@ -15,7 +15,7 @@ model Employee {
   password  String
   imageUrl  String
   birthDate DateTime
-  function  String
+  ocupation  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   tables    Table[]
