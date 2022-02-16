@@ -21,10 +21,7 @@ import {
   width: 100vw;
  `
 
- const SocialMedia = styled.div`
-    font-size: 1.2rem;
-    color: #fff;
- `
+
 
 const PersonalCredentials = styled.div`
   padding-top: 0.2rem;
@@ -40,15 +37,6 @@ const PersonalCredentials = styled.div`
 export const FooterStyled = () => {
   return (
     <Main>
-    <SocialMedia>
-      <FaFacebookSquare />
-      <FaInstagramSquare />
-      <FaSnapchatSquare />
-      <FaTwitterSquare />
-      <FaTripadvisor />
-      <FaYoutubeSquare />
-    </SocialMedia>
-      
       <PersonalCredentials>
         Criado por Cristina T. Iwassaki
           <a href="https://github.com/c-Tos1wa" target="_blank">

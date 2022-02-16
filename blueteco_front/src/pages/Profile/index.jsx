@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
+import { Modal, Button } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 
 const Info = styled.div`
   display: flex;
@@ -24,8 +26,13 @@ const ProfileData = styled.div`
 
 
 export const Profile = () => {
+  let navigate = useNavigate();
   const [user, setUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
+  const [show, setShow] = useState(false);
+  const [showError, setShowError] = useState(false);
+
+  const handleClose = () => setShow(false)
 
   useEffect(() => {
     const token = localStorage.token;
@@ -47,11 +54,16 @@ export const Profile = () => {
       })
   }, [loggedIn]);
 
+  const logout = () => {
+    localStorage.clear();
+    navigate('/')
+  }
+
 
   return(
     <>
       {
-        loggedIn ? (
+        loggedIn && (
           <ProfileData>
             <h2>Perfil do Usuário</h2>
             <img src={user.imageUrl} />
@@ -61,9 +73,28 @@ export const Profile = () => {
               <p>Festa de Aniversário em {user.birthDate}</p>
               <p>Sócio desde {user.createdAt}</p>
             </Info>
+            <Button onClick={logout}>Sair</Button>
           </ProfileData>
-        ) : (
-          <h2>FAÇA LOGIN</h2>
+        )
+      }
+      {
+        showError && 
+        (
+          <Modal
+          show={show}
+          onHide={handleClose}
+          backdrop='static'
+          keyboard={false}
+        >
+        <Modal.Header closeButton></Modal.Header>
+          <Modal.Body>
+            Uh oh... Para acessar esta área você precisa ter feito login!
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant='dark' onClick={handleClose}>Fechar</Button>
+            <Button href='/login'>Vai pro Login!</Button>
+          </Modal.Footer>
+        </Modal>
         )
       }
     </>

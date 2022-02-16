@@ -10,7 +10,7 @@ const Front = styled.img`
 const Main = styled.div`
   display: flex;
   gap: 3px;
-  margin: 1.9rem 0; 
+  margin: 0.9rem 0; 
 `
 
 const Text = styled.p`
