@@ -16,13 +16,13 @@ import {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100vw;
  `
 
  const SocialMedia = styled.div`
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: #fff;
  `
 
@@ -40,14 +40,14 @@ const PersonalCredentials = styled.div`
 export const FooterStyled = () => {
   return (
     <Main>
-    {/* <SocialMedia>
+    <SocialMedia>
       <FaFacebookSquare />
       <FaInstagramSquare />
       <FaSnapchatSquare />
       <FaTwitterSquare />
       <FaTripadvisor />
       <FaYoutubeSquare />
-    </SocialMedia> */}
+    </SocialMedia>
       
       <PersonalCredentials>
         Criado por Cristina T. Iwassaki

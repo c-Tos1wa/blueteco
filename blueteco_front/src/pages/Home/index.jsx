@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import food from '../../assets/comida-boteco.jpeg'
 import { Button } from 'react-bootstrap'
+import { BsDoorOpen } from "react-icons/bs";
 
 const Front = styled.img`
   width: auto;
@@ -8,13 +9,21 @@ const Front = styled.img`
 
 const Main = styled.div`
   display: flex;
+  gap: 3px;
 `
+
+const Final = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
 const Enter = styled(Button)`
+
   color: #fff;
   background-color: #000;
   padding: 0.5rem;
   border: none;
-  margin: 2rem;
+  margin: 0.8rem 0;
 
   &:hover{
     background-color: #000;
@@ -28,8 +37,8 @@ export const Home = () => {
     <Main>
       <Front src={food} alt="Foto de comida de boteco" />
       <p>
-        <strong>Blueteco</strong>
-        <br />Nossa História
+        <h3>Blueteco</h3>
+        Nossa História
         <br />
         Bacon ipsum dolor amet andouille short ribs swine brisket meatball. 
         Ham bacon ribeye, brisket sirloin tenderloin alcatra ground round. Cow short ribs beef cupim shank pork loin. 
@@ -48,8 +57,11 @@ export const Home = () => {
         To go irish shop affogato, aromatic skinny steamed foam white. Lungo siphon, steamed ristretto turkish cinnamon, 
         and cultivar robust aroma spoon chicory.
         <br />
-        Quer conhecer? Seja Bem-Vindo(a)!!!
-        <Enter href="/produtos">Entrar</Enter>
+        <Final>
+          <Enter href="/produtos">
+            Entrar <BsDoorOpen />
+          </Enter>
+        </Final>
       </p>
     </Main>
   )
