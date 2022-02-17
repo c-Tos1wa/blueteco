@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import styled from 'styled-components'
+import { Toast, ToastContainer, Button } from 'react-bootstrap'
 import { BsArrowRight } from 'react-icons/bs'
-import { Toast, ToastContainer } from 'react-bootstrap'
+import { Edited } from './edited'
 
 const Info = styled.div`
   display: flex;
@@ -35,9 +36,8 @@ const Anchor = styled.div`
 `
 
 const NotLoggedIn = styled(ToastContainer)`
-  margin-top: 5rem;
-`
-
+  margin: 5rem 0;
+`;
 
 export const Profile = () => {
   const [user, setUser] = useState({});
@@ -63,12 +63,6 @@ export const Profile = () => {
       })
   }, [loggedIn]);
 
-  // const logout = () => {
-  //   localStorage.clear();
-  //   navigate('/')
-  // }
-
-
   return(
     <>
       {
@@ -83,6 +77,11 @@ export const Profile = () => {
               <p>Festa de Aniversário em {user.birthDate}</p>
               <p>Sócio desde {user.createdAt}</p>
             </Info>
+            <div>
+              <Link to='/editar_perfil'>
+                <Button variant='warning'>Editar</Button>
+              </Link> 
+            </div>
           </ProfileData>
           <Anchor>
             <Link to='/produtos'>

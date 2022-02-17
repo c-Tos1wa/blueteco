@@ -4,6 +4,7 @@ import { Login } from './pages/Login'
 import { SignUp } from './pages/SignUp'
 import { Products } from './pages/Products'
 import { Profile } from './pages/Profile'
+import { Edited } from './pages/Profile/edited'
 
 
 function App() {
@@ -27,6 +28,10 @@ function App() {
     {
       path: '/perfil',
       element: <Profile />
+    },
+    {
+      path: '/editar_perfil',
+      element: <Edited />
     }
   ]);
 

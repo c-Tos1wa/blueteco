@@ -49,13 +49,12 @@ export const SignUp = () => {
       birthDate: new Date(birthDate).toJSON(),
       ocupation
     }
-
-    navigate('/login')
-
+  
     axios.post('/user', createdUser)
-      .then(
-        (response) => {
-          console.log(response.statusText);
+    .then(
+      (response) => {
+        console.log(response.statusText);
+        navigate('/login')
         })
       .catch(
         (error) => {
