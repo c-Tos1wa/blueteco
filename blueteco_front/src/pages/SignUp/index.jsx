@@ -23,6 +23,11 @@ const Main = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 3rem;
+
+  & a{
+    font-weight: 700;
+  }
 `
 
 export const SignUp = () => {

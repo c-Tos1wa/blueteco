@@ -1,14 +1,5 @@
 import styled from 'styled-components'
-import { 
-  FaFacebookSquare, 
-  FaGithub, 
-  FaInstagramSquare, 
-  FaLinkedin, 
-  FaSnapchatSquare,
-  FaTwitterSquare,
-  FaTripadvisor,
-  FaYoutubeSquare
- } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
 
  const Main = styled.div`
   background-color: #000;
@@ -16,12 +7,10 @@ import {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100vw;
  `
-
-
 
 const PersonalCredentials = styled.div`
   padding-top: 0.2rem;

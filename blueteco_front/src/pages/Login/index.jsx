@@ -25,6 +25,10 @@ const Main = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  & a{
+    font-weight: 800;
+  }
 `
 
 export const Login = () => {

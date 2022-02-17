@@ -11,17 +11,18 @@ const Front = styled.img`
 const Main = styled.div`
   display: flex;
   gap: 3px;
-  margin: 0.9rem 0; 
+  margin: 3rem 0; 
+  background-color: #f4f4f4;
 `
 
-const Text = styled.p`
+const Text = styled.div`
   text-align: center;
+  padding: 2rem 0;
 `
 export const Home = () => {
   return (
-    <>
     <Main>
-      <Front src={food} alt="Foto de comida de boteco" />
+      <img src={food} alt="Foto de comida de boteco" />
       <Text>
         <h3>Blueteco</h3>
         Nossa História
@@ -52,6 +53,5 @@ export const Home = () => {
           </Button>
       </Text>
     </Main>
-    </>
   )
 }
