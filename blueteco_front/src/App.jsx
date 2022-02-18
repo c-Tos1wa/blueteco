@@ -5,6 +5,7 @@ import { SignUp } from './pages/SignUp'
 import { Products } from './pages/Products'
 import { Profile } from './pages/Profile'
 import { Edited } from './pages/Profile/edited'
+import { Individual } from './pages/Products/one'
 
 
 function App() {
@@ -25,6 +26,10 @@ function App() {
       path: '/produtos',
       element: <Products />
     },
+    // {
+    //   path: `/produtos/${items.id}`,
+    //   element: <Individual />
+    // },
     {
       path: '/perfil',
       element: <Profile />
