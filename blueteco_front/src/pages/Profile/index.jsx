@@ -18,7 +18,7 @@ const ProfileData = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0.8rem;
+  margin: 1.5rem;
 
   img{
     border-radius:100%;
