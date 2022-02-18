@@ -7,7 +7,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa'
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100vw;
  `
